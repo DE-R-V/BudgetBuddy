@@ -1,26 +1,24 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">BudgetBuddy</a>
-    </div>
+﻿<div class="top-row">
+    <div class="logo"></div>
+    <b class="navbar-title">Budget Buddy</b>
 </div>
 
 <input type="checkbox" title="Navigation menu" class="navbar-toggler" />
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="nav flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+        <div class="nav-item">
+            <NavLink class="nav-link" href="monthly">
+                <div class="nav-link-content">
+                    <div></div>
+                    <b>Month</b>
+                </div>
             </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
+            <NavLink class="nav-link" href="yearly">
+                <div class="nav-link-content">
+                    <div></div>
+                    <b>Year</b>
+                </div>
             </NavLink>
         </div>
     </nav>

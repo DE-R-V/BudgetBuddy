@@ -1,0 +1,33 @@
+
+.main-info-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    width: 100%;
+    background-color: red;
+}
+
+.main-info {
+    height: 150px;
+    width: 33%;
+
+    border-radius: 5px;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+}
+
+.income-info {
+    background-color: var(--dark);
+}
+
+.spending-info {
+    background-color: var(--regular);
+    margin: 0 0.5%;
+}
+
+.savings-info {
+    background-color: var(--light);
+}
