@@ -1,0 +1,81 @@
+/* Main container */
+.time-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+/* =========================
+   TIMEFRAME TOGGLE
+   ========================= */
+
+.timeframe-toggle {
+    display: inline-flex;
+    width: fit-content;
+
+    padding: 3px;
+
+    background-color: #e9ecef;
+    border-radius: 8px;
+}
+
+.toggle-option {
+    padding: 8px 20px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: #555;
+
+    cursor: pointer;
+}
+
+.toggle-option.active {
+    background-color: white;
+    color: #222;
+
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   MONTH LIST
+   ========================= */
+
+.month-list {
+    display: flex;
+    align-items: center;
+
+    gap: 4px;
+
+    overflow-x: auto;
+    white-space: nowrap;
+
+    padding-bottom: 4px;
+}
+
+.month-option {
+    flex: 0 0 auto;
+
+    padding: 6px 12px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: #666;
+
+    cursor: pointer;
+}
+
+.month-option:hover {
+    background-color: #f0f0f0;
+    color: #222;
+}
+
+.month-option.active {
+    background-color: #2563eb;
+    color: white;
+}

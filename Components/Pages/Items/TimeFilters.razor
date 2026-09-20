@@ -1,0 +1,66 @@
+<div class="time-filters">
+
+    <!-- Timeframe toggle -->
+    <div class="timeframe-toggle">
+        <button type="button"
+                class="toggle-option @(selectedTimeFrame == "Mensile" ? "active" : "")"
+                @onclick='() => SelectOption("timeFrame", "Mensile")'>
+            Mensile
+        </button>
+
+        <button type="button"
+                class="toggle-option @(selectedTimeFrame == "Annuale" ? "active" : "")"
+                @onclick='() => SelectOption("timeFrame", "Annuale")'>
+            Annuale
+        </button>
+    </div>
+
+    <!-- Month selector -->
+    @if (selectedTimeFrame == "Mensile")
+    {
+        <div class="month-list">
+            @foreach (var month in Months)
+            {
+                <button type="button"
+                        class="month-option @(selectedMonth == month ? "active" : "")"
+                        @onclick='() => SelectOption("month", month)'>
+                    @month
+                </button>
+            }
+        </div>
+    }
+
+</div>
+
+@code {
+    private string selectedTimeFrame = "Mensile";
+    private string selectedMonth = "Gennaio";
+
+    public string[] Months { get; } =
+    {
+        "Gennaio",
+        "Febbraio",
+        "Marzo",
+        "Aprile",
+        "Maggio",
+        "Giugno",
+        "Luglio",
+        "Agosto",
+        "Settembre",
+        "Ottobre",
+        "Novembre",
+        "Dicembre"
+    };
+
+    private void SelectOption(string dropdownId, string option)
+    {
+        if (dropdownId == "timeFrame")
+        {
+            selectedTimeFrame = option;
+        }
+        else if (dropdownId == "month")
+        {
+            selectedMonth = option;
+        }
+    }
+}

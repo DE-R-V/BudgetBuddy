@@ -1,7 +1,9 @@
-.page {
+.app-container {
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    margin: 0rem 1rem;
 }
 
 main {
