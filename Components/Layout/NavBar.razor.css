@@ -1,0 +1,35 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    width: auto;
+}
+
+.navbar-title {
+    display: flex;
+    font-weight: bold;
+    color: var(--petro);
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.nav-links ::deep .nav-link {
+    color: var(--gray);
+    padding: 0 10px;
+
+}
+
+.nav-links ::deep .nav-link.active {
+    color: var(--petro);
+    font-weight: bold;
+    border-left: 5px solid var(--petro);
+    padding-left: 10px;
+    background-color: rgb(0, 123, 127, 0.1);
+}

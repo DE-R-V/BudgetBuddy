@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 a, .btn-link {
@@ -101,16 +102,18 @@ h1:focus {
 }
 
 :root {
-    --deep: #1B262C;
-    --dark: #0F4C75;
-    --regular: #3282B8;
-    --light: #BBE1FA;
-    --lighter: #EAF4FC;
+    --red: #FF6F61;
+    --petro: #007B7F;
+    --yellow: #F9E79F;
+    --blue: #5DADE2;
+    --gray: #AAB7B8;
+    --standard-text: #212529;
+    --negative-text: #b5b5b5;
 }
 
 .page-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-height: 100vh;
     width: 100%;
 }
