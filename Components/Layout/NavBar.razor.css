@@ -33,3 +33,17 @@
     border-bottom: 5px solid var(--petro);
     padding-left: 10px;
 }
+
+.nav-links ::deep .budget-link {
+    color: var(--standard-text);
+    padding: 0 10px;
+    font-weight: bold;
+
+}
+
+.nav-links ::deep .budget-link.active {
+    color: var(--petro);
+    font-weight: bold;
+    border-bottom: 5px solid var(--petro);
+    padding-left: 10px;
+}

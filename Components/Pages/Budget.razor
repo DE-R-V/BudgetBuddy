@@ -1,0 +1,142 @@
+@page "/budget"
+
+@inject ConfigService ConfigService
+
+<PageTitle>Budget</PageTitle>
+
+<div class="budget-page">
+
+    <h1>Budget configuration</h1>
+
+    @if (Config is null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <section class="config-section">
+            <h2>Variable budget</h2>
+
+            <div class="form-row">
+                <label for="variable-budget">
+                    Allocated variable budget
+                </label>
+
+                <InputNumber
+                    id="variable-budget"
+                    @bind-Value="Config.AllocatedVariableBudget"
+                    class="form-control"
+                    step="0.01" />
+            </div>
+        </section>
+
+        <section class="config-section">
+            <div class="section-header">
+                <h2>Fixed expenses</h2>
+            </div>
+
+            <table class="expenses-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Spesa mensile</th>
+                        <th>Stimato</th>
+                        <th>Allocato</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var expense in Config.FixedExpenses)
+                    {
+                        <tr>
+                            <td>
+                                @expense.Name
+                            </td>
+                            
+                            <td>
+                                <InputNumber
+                                    @bind-Value="expense.Estimated"
+                                    class="form-control"
+                                    step="0.01" />
+                            </td>
+
+                            <td>
+                                <InputNumber
+                                    @bind-Value="expense.Allocated"
+                                    class="form-control"
+                                    step="0.01" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </section>
+
+        <div class="actions">
+            <button class="btn btn-primary"
+                    @onclick="SaveAsync"
+                    disabled="@IsSaving">
+                @(IsSaving ? "Saving..." : "Save")
+            </button>
+
+            <button class="btn btn-secondary"
+                    @onclick="ReloadAsync"
+                    disabled="@IsSaving">
+                Cancel
+            </button>
+
+            @if (!string.IsNullOrEmpty(StatusMessage))
+            {
+                <span class="status-message">
+                    @StatusMessage
+                </span>
+            }
+        </div>
+    }
+
+</div>
+
+@code {
+    private AppConfig? Config;
+    private bool IsSaving;
+    private string? StatusMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadAsync();
+    }
+
+    private async Task LoadAsync()
+    {
+        Config = await ConfigService.LoadAsync();
+        StatusMessage = null;
+    }
+
+    private async Task ReloadAsync()
+    {
+        await LoadAsync();
+    }
+
+    private async Task SaveAsync()
+    {
+        if (Config is null)
+            return;
+
+        IsSaving = true;
+        StatusMessage = null;
+
+        try
+        {
+            await ConfigService.SaveAsync(Config);
+            StatusMessage = "Saved.";
+        }
+        catch (Exception ex)
+        {
+            StatusMessage = $"Error while saving: {ex.Message}";
+        }
+        finally
+        {
+            IsSaving = false;
+        }
+    }
+}

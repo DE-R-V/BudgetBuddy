@@ -1,0 +1,61 @@
+.budget-page {
+    padding: 24px;
+}
+
+.config-section {
+    margin-bottom: 32px;
+}
+
+.config-section h2 {
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 500px;
+}
+
+.form-control {
+    width: 140px;
+    padding: 8px 10px;
+}
+
+.expenses-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expenses-table th,
+.expenses-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.expenses-table th {
+    font-weight: 600;
+}
+
+.expenses-table td:first-child {
+    width: 40%;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.status-message {
+    margin-left: 8px;
+}
